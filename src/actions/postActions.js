@@ -3,28 +3,35 @@
 export const INSERT_POST_BEGIN = 'INSERT_POST_BEGIN';
 export const INSERT_POST_SUCCESS = 'INSERT_POST_SUCCESS';
 export const INSERT_POST_FAILURE = 'INSERT_POST_FAILURE';
+/* insert */
+export const GET_POST_BEGIN = 'INSERT_POST_BEGIN';
+export const GET_POST_SUCCESS = 'INSERT_POST_SUCCESS';
+export const GET_POST_FAILURE = 'INSERT_POST_FAILURE';
 
 /**
- * Insert product
+ * Insert
  */
-export const insertProductBegin = () => ({
+export const insertPostBegin = () => ({
     type: INSERT_POST_BEGIN
 });
 
-export const insertProductSuccess = productName => ({
+export const insertPostSuccess = productName => ({
     type: INSERT_POST_SUCCESS,
     payload: productName
 });
 
-export function insertProduct(payload) {
+export function insertPost(payload) {
+
     return dispatch => {
-        dispatch(insertProductBegin());
+        
+        dispatch(insertPostBegin());
 
         setTimeout(function(){
-					dispatch(insertProductSuccess(payload));
+			dispatch(insertPostSuccess(payload));
         }, 100);
 
     };
+
 }
 
 

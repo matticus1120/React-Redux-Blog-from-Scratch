@@ -14,7 +14,6 @@ import {
 } from 'reactstrap';
 
 class Header extends React.Component{
-	
 
 	render(){
 
@@ -33,7 +32,7 @@ class Header extends React.Component{
 								<Link className="nav-link" to="/new-post">New Post</Link> 
 							</NavItem>
 							<NavItem>
-								<Link className="nav-link" to="/categories">Categories</Link> 
+								<Link className="nav-link" to="/categories">Categories ({this.props.categories.length})</Link> 
 							</NavItem>
 							<NavItem>
 								<Link className="nav-link" to="/new-category">New Category</Link> 

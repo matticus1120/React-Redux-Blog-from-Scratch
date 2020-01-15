@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './containers/HomeContainer';
 import NewPost from './containers/NewPostContainer';
 import SinglePost from './containers/SinglePostContainer';
+import NewCategory from './containers/NewCategoryContainer';
 
 export default class App extends React.Component{
 
@@ -26,7 +27,8 @@ export default class App extends React.Component{
 					        <Route path="/" exact component={Home} />
 					        <Route path="/new-post" component={NewPost} />
 					        <Route path="/posts/:id" component={SinglePost} />
-					     
+					        <Route path="/new-category" component={NewCategory} />
+
 					    </Switch>
 					    
 					</div>

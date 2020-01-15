@@ -12,7 +12,19 @@ class NewPost extends React.Component{
 		this.props.history.push('/');
 	}
 
+	getCategoryOptions() {
+		if( !this.props.categories ) {
+			return null;
+		}
+		return this.props.categories.map((item, index) => {
+			return (
+				<option value={item.categoryTitle} key={index}>{item.categoryTitle}</option>
+			)
+		});
+	}
+
 	render(){
+
 		return(
 			<div>
 				<h1>Add New Post</h1>
@@ -44,11 +56,7 @@ class NewPost extends React.Component{
 											className="form-control"
 										>
 											<option value="">Select Category</option>
-											<option value="news">New</option>
-											<option value="music">Music</option>
-											<option value="weather">Weather</option>
-											<option value="business">Business</option>
-											<option value="tech">Tech</option>
+											{this.getCategoryOptions()}
 										</Field>
 									</div>
 								</div>

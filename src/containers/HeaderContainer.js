@@ -16,7 +16,8 @@ const mapDispatchToProps = (dispatch) => {
 
 function mapStateToProps(state, ownProps) {
   return { 
-    posts: state.posts.items
+    posts: state.posts.items,
+    categories: state.categories.items
   };
 }
 

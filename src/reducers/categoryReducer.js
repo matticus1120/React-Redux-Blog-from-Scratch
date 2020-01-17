@@ -28,8 +28,6 @@ export default function postReducer(state = initialState, action) {
                 error: true
             };
         case INSERT_CATEGORY_SUCCESS:
-            console.log('action.payload', action.payload);
-            console.log('state', state);
             return {
                 ...state,
                 loading: false,

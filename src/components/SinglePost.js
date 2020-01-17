@@ -1,12 +1,11 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 class SinglePost extends React.Component{
 	
 	render(){
-		console.log('this.props', this.props);
 
 		if( !this.props.post ) {
 			return <h1>Post Not Found</h1>

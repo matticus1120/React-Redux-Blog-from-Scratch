@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { Table } from 'reactstrap';
 
@@ -13,6 +13,7 @@ class Home extends React.Component{
 				<tr key={index}>
 					<td><Link to={`/posts/${index}`}>{item.postTitle}</Link></td>
 					<td>{item.postCategory}</td>
+					<td><Link to={`/edit-post/:${index}`}>Edit</Link></td>
 				</tr>
 			)
 		});
@@ -32,6 +33,7 @@ class Home extends React.Component{
 					<tr>
 						<th>Post</th>
 						<th>Category</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -51,7 +53,14 @@ class Home extends React.Component{
 
 		return(
 			<div>
-				<h1>All Posts</h1>
+				<header>
+					<div className="d-flex p-2 justify-content-between align-items-center">
+						<h1>All Posts</h1>
+						<div>
+							<Link to="/new-post" className="btn btn-success">Add New</Link>
+						</div>
+					</div>	
+				</header>
 				{this.renderPostsTable()}
 			</div>
 		);

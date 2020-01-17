@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import { connect } from 'react-redux';
 
@@ -17,22 +17,22 @@ class Header extends React.Component{
 		return(
 			<div className="header"> 
 				<Navbar color="light" light expand="md" className="mb-5">   
-					<Link className="navbar-brand" to="/">Redux Blog</Link>
+					<NavLink exact className="navbar-brand" to="/">Redux Blog</NavLink>
 
 					<Collapse isOpen={true} navbar> 
 						<Nav className="ml-auto" navbar>
 							
 							<NavItem>
-								<Link className="nav-link" to="/">All Posts ({this.props.posts.length})</Link>
+								<NavLink exact className="nav-link" activeClassName="active" to="/">All Posts ({this.props.posts.length})</NavLink>
 							</NavItem>
 							<NavItem> 
-								<Link className="nav-link" to="/new-post">New Post</Link> 
+								<NavLink className="nav-link" activeClassName="active" to="/new-post">New Post</NavLink> 
 							</NavItem>
 							<NavItem>
-								<Link className="nav-link" to="/categories">Categories ({this.props.categories.length})</Link> 
+								<NavLink className="nav-link" activeClassName="active" to="/categories">Categories ({this.props.categories.length})</NavLink> 
 							</NavItem>
 							<NavItem>
-								<Link className="nav-link" to="/new-category">New Category</Link> 
+								<NavLink className="nav-link" activeClassName="active" to="/new-category">New Category</NavLink> 
 							</NavItem>
 							
 						</Nav> 

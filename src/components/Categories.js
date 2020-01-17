@@ -12,6 +12,7 @@ class Categories extends React.Component{
 			return (
 				<tr key={index}>
 					<td><Link to={`/categories/${index}`}>{item.categoryTitle}</Link></td>
+					<td><Link to={`/edit-category/:${index}`}>Edit</Link></td>
 				</tr>
 			)
 		});
@@ -29,8 +30,8 @@ class Categories extends React.Component{
 			<Table>
 				<thead>
 					<tr>
-						<th>Post</th>
 						<th>Category</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -50,7 +51,14 @@ class Categories extends React.Component{
 
 		return(
 			<div>
-				<h1>All Categories</h1>
+				<header>
+					<div className="d-flex p-2 justify-content-between align-items-center">
+						<h1>All Categories</h1>
+						<div>
+							<Link to="/new-category" className="btn btn-success">Add New</Link>
+						</div>
+					</div>	
+				</header>
 				{this.renderCategoriesTable()}
 			</div>
 		);

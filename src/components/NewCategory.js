@@ -7,12 +7,12 @@ import { insertCategory } from "../actions/categoryActions";
 class NewCategory extends React.Component{
 	
 	onSubmit = (values) => {
-		console.log('values', values);
 		this.props.insertCategory( values );
-		// this.props.history.push('/');
+		this.props.history.push('/categories');
 	}
 
-	render(){
+	render() {
+
 		return(
 			<div>
 				<h1>Add New Category</h1>

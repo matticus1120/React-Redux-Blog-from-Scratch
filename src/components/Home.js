@@ -13,7 +13,7 @@ class Home extends React.Component{
 				<tr key={index}>
 					<td><Link to={`/posts/${index}`}>{item.postTitle}</Link></td>
 					<td>{item.postCategory}</td>
-					<td><Link to={`/edit-post/:${index}`}>Edit</Link></td>
+					<td><Link to={`/edit-post/${index}`}>Edit</Link></td>
 				</tr>
 			)
 		});

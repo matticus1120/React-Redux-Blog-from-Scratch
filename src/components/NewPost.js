@@ -46,6 +46,7 @@ class NewPost extends React.Component{
 									component="input" 
 									placeholder="Post Title" 
 									className="form-control"
+									initialValue={ this.props.post ? this.props.post.postTitle : '' }
 								/>
 							</div>
 						</div>
@@ -73,6 +74,7 @@ class NewPost extends React.Component{
 									component="textarea"
 									placeholder="content"
 									className="form-control"
+									initialValue={ this.props.post ? this.props.post.postContent : '' }
 								/>
 							</div>
 						</div>
@@ -80,7 +82,7 @@ class NewPost extends React.Component{
 						</div>
 					</div>
 
-					<button className="btn btn-success">Submit</button>
+					<button className="btn btn-success">{ this.props.post ? 'Update' : 'Publish' }</button>
 				</form>
 
 				)}
@@ -89,11 +91,11 @@ class NewPost extends React.Component{
 		);
 	}
 
-	render(){
+	render() {
 
 		return (
 			<div>
-				<h1>Add New Post</h1>
+				<h1>{ this.props.post ? 'Edit Post' : 'New Post' }</h1>
 				{this.renderNewPost()}
 			</div>
 		)

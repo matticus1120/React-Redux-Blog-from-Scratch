@@ -7,7 +7,6 @@ import { insertPost } from "../actions/postActions";
 class NewPost extends React.Component{
 	
 	onSubmit = (values) => {
-		console.log('values', values);
 		this.props.insertPost( values );
 		this.props.history.push('/');
 	}

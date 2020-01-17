@@ -1,14 +1,22 @@
+/**
+ * Main App file
+ */
+
+// react, redux
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import HeaderContainer from './containers/HeaderContainer';
-
+// Libraries
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Containers
+import HeaderContainer from './containers/HeaderContainer';
 import Home from './containers/HomeContainer';
 import NewPost from './containers/NewPostContainer';
 import SinglePost from './containers/SinglePostContainer';
+import Categories from './containers/CategoryContainer';
 import NewCategory from './containers/NewCategoryContainer';
+
 
 export default class App extends React.Component{
 
@@ -28,6 +36,7 @@ export default class App extends React.Component{
 					        <Route path="/new-post" component={NewPost} />
 					        <Route path="/posts/:id" component={SinglePost} />
 					        <Route path="/new-category" component={NewCategory} />
+					        <Route path="/categories" component={Categories} />
 
 					    </Switch>
 					    

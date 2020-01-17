@@ -1,15 +1,12 @@
 import React from 'react';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux';
 
 import {
 	Collapse,
 	Navbar,
-	NavbarToggler,
-	NavbarBrand,
 	Nav,
-	Container,
 	NavItem,
 } from 'reactstrap';
 
@@ -26,7 +23,7 @@ class Header extends React.Component{
 						<Nav className="ml-auto" navbar>
 							
 							<NavItem>
-								<Link className="nav-link" to="/">Home ({this.props.posts.length})</Link>
+								<Link className="nav-link" to="/">All Posts ({this.props.posts.length})</Link>
 							</NavItem>
 							<NavItem> 
 								<Link className="nav-link" to="/new-post">New Post</Link> 
@@ -37,6 +34,7 @@ class Header extends React.Component{
 							<NavItem>
 								<Link className="nav-link" to="/new-category">New Category</Link> 
 							</NavItem>
+							
 						</Nav> 
 
 					</Collapse> 

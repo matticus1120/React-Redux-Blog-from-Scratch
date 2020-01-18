@@ -83,7 +83,7 @@ export function fetchPost(payload) {
 
 
 /**
- * Insert
+ * Update
  */
 export const updatePostBegin = () => ({
     type: UPDATE_POST_BEGIN

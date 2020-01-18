@@ -1,6 +1,6 @@
 import EditPost from '../components/PostForm.js';
 
-import { fetchPost, resetPost } from '../actions/postActions';
+import { fetchPost, resetPost, updatePost } from '../actions/postActions';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state, ownProps) {
@@ -13,8 +13,11 @@ function mapStateToProps(state, ownProps) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    updatePost: (post) => {
+    	dispatch(updatePost(post));
+    },
     fetchPost: (postId) => {
-    	dispatch(fetchPost(postId));
+      dispatch(fetchPost(postId));
     },
     resetPost: () => {
       dispatch(resetPost());

@@ -26,8 +26,12 @@ const initialState = {
 };
 
 const getPost = (posts, postId) => {
-    let thePost = posts.find((elem) => elem.id === postId );
-    return thePost;
+    return posts.find((item) => item.id === postId );
+}
+const updatePost = (posts, post) => {
+    return posts.map((item) => {
+        return  item.id === post.id ? {...post} : item;
+    });
 }
 
 export default function postReducer(state = initialState, action) {
@@ -73,11 +77,10 @@ export default function postReducer(state = initialState, action) {
                 ...state,
                 loading: false,
                 error: null,
-                items: [...state.items,  action.payload]
+                items: updatePost(state.items, action.payload)
             };
 
         // fetch
-        // TODO: These are getting called like 14 times. Need to debug
         case FETCH_POST_BEGIN:
             return {
                 ...state,

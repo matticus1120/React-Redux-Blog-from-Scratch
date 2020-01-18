@@ -5,19 +5,24 @@ import { Link } from 'react-router-dom';
 class PostForm extends React.Component{
 	
 	componentDidMount() {
-		if( this.props.fetchPost ) {
+		if( this.props.activePostId ) {
 			this.props.fetchPost(this.props.match.params.id);
 		}
 	}
 
 	componentWillUnmount() {
-		if( this.props.fetchPost ) {
+		if( this.props.activePostId ) {
 			this.props.resetPost();
 		}
 	}
 
 	onSubmit = (values) => {
-		this.props.insertPost( values );
+		if( this.props.activePostId ) {
+			this.props.updatePost( values );
+		}
+		else {
+			this.props.insertPost( values );
+		}
 		this.props.history.push('/');
 	}
 

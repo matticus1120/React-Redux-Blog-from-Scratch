@@ -32,7 +32,7 @@ class PostForm extends React.Component{
 		}
 		return this.props.categories.map((item, index) => {
 			return (
-				<option value={item.categoryTitle} key={index}>{item.categoryTitle}</option>
+				<option value={item.id} key={index}>{item.categoryTitle}</option>
 			)
 		});
 	}

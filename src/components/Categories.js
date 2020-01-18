@@ -1,8 +1,6 @@
 import React from 'react';
-import { connect } from "react-redux";
 
 import { Link } from 'react-router-dom';
-
 import { Table } from 'reactstrap';
 
 class Categories extends React.Component{
@@ -12,7 +10,7 @@ class Categories extends React.Component{
 			return (
 				<tr key={index}>
 					<td><Link to={`/categories/${index}`}>{item.categoryTitle}</Link></td>
-					<td><Link to={`/edit-category/:${index}`}>Edit</Link></td>
+					<td><Link to={`/edit-category/${item.id}`}>Edit</Link></td>
 				</tr>
 			)
 		});
@@ -65,12 +63,4 @@ class Categories extends React.Component{
 	}
 }
 
-
-
-const mapStateToProps = state => ({
-	categories: state.categories.items,
-	loading: state.categories.loading,
-	error: state.categories.error
-});
-
-export default connect(mapStateToProps)(Categories);
+export default Categories;

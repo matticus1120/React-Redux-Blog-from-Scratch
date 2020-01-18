@@ -10,7 +10,7 @@ class Home extends React.Component{
 			return (
 				<tr key={index}>
 					<td><Link to={`/posts/${item.id}`}>{item.postTitle}</Link></td>
-					<td>{item.postCategory}</td>
+					<td>{item.categoryObject.categoryTitle}</td>
 					<td><Link to={`/edit-post/${item.id}`}>Edit</Link></td>
 				</tr>
 			)
@@ -47,6 +47,8 @@ class Home extends React.Component{
 		if( this.props.loading ) {
 			return <div><em>Loading...</em></div>
 		}
+
+		console.log('this.props.newPosts', this.props.newPosts);
 
 
 		return(

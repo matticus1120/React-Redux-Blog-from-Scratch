@@ -1,4 +1,10 @@
 import Categories from '../components/Categories.js';
 import { connect } from 'react-redux';
 
-export default connect()(Categories);
+function mapStateToProps(state, ownProps) {
+  return { 
+    categories: state.categories.items,
+  };
+}
+
+export default connect(mapStateToProps)(Categories);

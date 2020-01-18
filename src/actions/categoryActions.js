@@ -16,6 +16,11 @@ export const FETCH_CATEGORY_SUCCESS = 'FETCH_CATEGORY_SUCCESS';
 export const FETCH_CATEGORY_FAILURE = 'FETCH_CATEGORY_FAILURE';
 export const RESET_CATEGORY = 'RESET_CATEGORY';
 
+/* update */
+export const UPDATE_CATEGORY_BEGIN = 'UPDATE_CATEGORY_BEGIN';
+export const UPDATE_CATEGORY_SUCCESS = 'UPDATE_CATEGORY_SUCCESS';
+export const UPDATE_CATEGORY_FAILURE = 'UPDATE_CATEGORY_FAILURE';
+
 /**
  * Insert
  */
@@ -55,7 +60,7 @@ export const fetchCategorySuccess = categoryName => ({
     payload: categoryName
 });
 
-export const resetCategorySuccess = () => ({
+export const resetCategory = () => ({
     type: RESET_CATEGORY,
 });
 
@@ -66,7 +71,34 @@ export function fetchCategory(payload) {
         dispatch(fetchCategoryBegin());
 
         setTimeout(function(){
-			dispatch( fetchCategorySuccess( formatCategory(payload) ) );
+			dispatch( fetchCategorySuccess( payload ) );
+        }, 100);
+
+    };
+
+}
+
+
+/**
+ * Update
+ */
+export const updateCategoryBegin = () => ({
+    type: UPDATE_CATEGORY_BEGIN
+});
+
+export const updateCategorySuccess = category => ({
+    type: UPDATE_CATEGORY_SUCCESS,
+    payload: category
+});
+
+export function updateCategory(payload) {
+
+    return dispatch => {
+        
+        dispatch(updateCategoryBegin());
+
+        setTimeout(function(){
+            dispatch( updateCategorySuccess( payload ) );
         }, 100);
 
     };

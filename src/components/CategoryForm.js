@@ -3,8 +3,25 @@ import { Form, Field } from 'react-final-form'
 
 class CategoryForm extends React.Component{
 	
+	
+	componentDidMount() {
+		if( this.props.activeCategoryId ) {
+			this.props.fetchCategory(this.props.match.params.id);
+		}
+	}
+
+	componentWillUnmount() {
+		if( this.props.activeCategoryId ) {
+			this.props.resetCategory();
+		}
+	}
 	onSubmit = (values) => {
-		this.props.insertCategory( values );
+		if( this.props.activeCategoryId ) {
+			this.props.updateCategory( values );
+		}
+		else {
+			this.props.insertCategory( values );
+		}
 		this.props.history.push('/categories');
 	}
 
@@ -12,9 +29,10 @@ class CategoryForm extends React.Component{
 
 		return(
 			<div>
-				<h1>Add New Category</h1>
+				<h1>{this.props.activeCategoryId ? 'Edit Category' : 'Add New Category' }</h1>
 					<Form
 						onSubmit={this.onSubmit}
+						initialValues={this.props.activeCategory}
 						render={({ handleSubmit }) => (
 
 						<form onSubmit={handleSubmit}>

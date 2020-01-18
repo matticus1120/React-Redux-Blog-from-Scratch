@@ -25,9 +25,7 @@ const initialState = {
     error: null
 };
 
-const getPost = (posts, postId) => {
-    return posts.find((item) => item.id === postId );
-}
+
 const updatePost = (posts, post) => {
     return posts.map((item) => {
         return  item.id === post.id ? {...post} : item;
@@ -98,7 +96,7 @@ export default function postReducer(state = initialState, action) {
                 ...state,
                 loading: false,
                 error: null,
-                activePost: getPost(state.items, action.payload)
+                activePost: state.items.find((item) => item.id === action.payload )
             };
         case RESET_POST:
             return {

@@ -17,6 +17,7 @@ import EditPost from './containers/EditPostContainer';
 import SinglePost from './containers/SinglePostContainer';
 import Categories from './containers/CategoryContainer';
 import NewCategory from './containers/NewCategoryContainer';
+import EditCategory from './containers/EditCategoryContainer';
 
 
 export default class App extends React.Component{
@@ -39,6 +40,7 @@ export default class App extends React.Component{
 					        <Route path="/posts/:id" component={SinglePost} />
 					        <Route path="/new-category" component={NewCategory} />
 					        <Route path="/categories" component={Categories} />
+					        <Route path="/edit-category/:id" component={EditCategory} />
 
 					    </Switch>
 					    

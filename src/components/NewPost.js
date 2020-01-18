@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 class NewPost extends React.Component{
 	
 	componentWillMount() {
-		console.log('this.props.match.params.id', this.props.match.params.id);
 		if( this.props.fetchPost )
 			this.props.fetchPost(this.props.match.params.id);
 	}

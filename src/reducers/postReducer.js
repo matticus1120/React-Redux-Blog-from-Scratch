@@ -26,7 +26,6 @@ const initialState = {
 
 const getPost = (posts, postId) => {
     let thePost = posts.find((elem) => elem.id === postId );
-    // console.log('thePost', thePost);
     return thePost;
 }
 
@@ -55,29 +54,6 @@ export default function postReducer(state = initialState, action) {
             };
 
         // update
-        case FETCH_POST_BEGIN:
-            console.log('FETCH_POST_BEGIN');
-            return {
-                ...state,
-                loading: true,
-                error: false
-            };
-        case FETCH_POST_FAILURE:
-            console.log('FETCH_POST_FAILURE');
-            return {
-                ...state,
-                loading: false,
-                error: true
-            };
-        case FETCH_POST_SUCCESS:
-            // console.log('FETCH_POST_SUCCESS');
-            return {
-                ...state,
-                loading: false,
-                error: null,
-                activePost: getPost(state.items, action.payload)
-            };
-        // update
         case UPDATE_POST_BEGIN:
             return {
                 ...state,
@@ -97,6 +73,28 @@ export default function postReducer(state = initialState, action) {
                 loading: false,
                 error: null,
                 items: [...state.items,  action.payload]
+            };
+
+        // fetch
+        // TODO: These are getting called like 14 times. Need to debug
+        case FETCH_POST_BEGIN:
+            return {
+                ...state,
+                loading: true,
+                error: false
+            };
+        case FETCH_POST_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: true
+            };
+        case FETCH_POST_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                activePost: getPost(state.items, action.payload)
             };
 
         default:

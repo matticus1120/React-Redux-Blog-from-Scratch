@@ -62,9 +62,12 @@ export const fetchPostFailure = error => ({
 
 export function fetchPost(payload) {
 
+    console.log('payload', payload);
+
     return dispatch => {
         
         dispatch(fetchPostBegin());
+        console.log('fetchPostBegin');
 
         setTimeout(function(){
             dispatch( fetchPostSuccess( payload ) );

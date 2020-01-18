@@ -48,9 +48,6 @@ class Home extends React.Component{
 			return <div><em>Loading...</em></div>
 		}
 
-		console.log('this.props.newPosts', this.props.newPosts);
-
-
 		return(
 			<div>
 				<header>
@@ -64,6 +61,7 @@ class Home extends React.Component{
 				{this.renderPostsTable()}
 			</div>
 		);
+		
 	}
 }
 

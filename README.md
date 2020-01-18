@@ -1,9 +1,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), and kicked off with [A Complete React Redux Tutorial for Beginners (2019)](https://daveceddia.com/redux-tutorial/).
 
-# React Redux Blog #WIP
+# React Redux Blog from "Scratch"
 
-This is a work-in-progress project that exists just so that I can teach myself Redux. Along the way I'm leaving notes, comments, and links, so that I can remind myself where I learned certain things along the way.
+This is a work-in-progress project that exists just so that I can teach myself (and hopefully others!) Redux. Along the way I'm leaving notes, comments, and links, so that I can remind myself where I learned certain things along the way.
 
 ## To get started:
 

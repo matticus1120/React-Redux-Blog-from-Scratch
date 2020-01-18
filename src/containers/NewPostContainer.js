@@ -1,10 +1,11 @@
-import NewPost from '../components/NewPost.js';
+import NewPost from '../components/PostForm.js';
 import { connect } from 'react-redux';
 
 import { insertPost } from "../actions/postActions";
 
 
 function mapStateToProps(state, ownProps) {
+	console.log('state', state);
   return { 
     categories: state.categories.items
   };

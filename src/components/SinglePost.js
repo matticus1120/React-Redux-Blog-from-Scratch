@@ -6,6 +6,10 @@ class SinglePost extends React.Component{
 	componentWillMount() {
 		this.props.fetchPost(this.props.match.params.id);
 	}
+
+	componentWillUnmount() {
+		this.props.resetPost();
+	}
 	
 	render() {
 

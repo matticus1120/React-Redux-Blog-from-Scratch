@@ -2,11 +2,18 @@ import React from 'react';
 import { Form, Field } from 'react-final-form'
 import { Link } from 'react-router-dom';
 
-class NewPost extends React.Component{
+class PostForm extends React.Component{
 	
-	componentWillMount() {
-		if( this.props.fetchPost )
+	componentDidMount() {
+		if( this.props.fetchPost ) {
 			this.props.fetchPost(this.props.match.params.id);
+		}
+	}
+
+	componentWillUnmount() {
+		if( this.props.fetchPost ) {
+			this.props.resetPost();
+		}
 	}
 
 	onSubmit = (values) => {
@@ -26,8 +33,8 @@ class NewPost extends React.Component{
 	}
 
 	renderNewPost() {
-
-		if( !this.props.categories.length ) {
+	
+		if( !this.props.categories || !this.props.categories.length ) {
 			return <div><p>No categories yet. <Link to="/new-category">Add one now</Link>.</p></div>
 		}
 
@@ -37,6 +44,8 @@ class NewPost extends React.Component{
 				render={({ handleSubmit }) => (
 
 				<form onSubmit={handleSubmit}>
+
+					<h3>{ !this.props.activePost ? 'New' : this.props.activePost.postTitle }</h3>
 					
 					<div className="row">
 						
@@ -48,7 +57,7 @@ class NewPost extends React.Component{
 									component="input" 
 									placeholder="Post Title" 
 									className="form-control"
-									initialValue={ this.props.activePost ? this.props.activePost.postTitle : '' }
+									initialValue={ !this.props.activePost ? '' : this.props.activePost.postTitle }
 								/>
 							</div>
 						</div>
@@ -76,7 +85,7 @@ class NewPost extends React.Component{
 									component="textarea"
 									placeholder="content"
 									className="form-control"
-									initialValue={ this.props.activePost ? this.props.activePost.postContent : '' }
+									initialValue={ !this.props.activePost ? '' : this.props.activePost.postContent }
 								/>
 							</div>
 						</div>
@@ -105,4 +114,4 @@ class NewPost extends React.Component{
 	}
 }
 
-export default NewPost;
+export default PostForm;

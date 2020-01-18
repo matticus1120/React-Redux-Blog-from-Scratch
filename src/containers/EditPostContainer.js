@@ -1,6 +1,6 @@
-import NewPost from '../components/NewPost.js';
+import EditPost from '../components/PostForm.js';
 
-import { fetchPost } from '../actions/postActions';
+import { fetchPost, resetPost } from '../actions/postActions';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state, ownProps) {
@@ -15,9 +15,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchPost: (postId) => {
     	dispatch(fetchPost(postId));
+    },
+    resetPost: () => {
+      dispatch(resetPost());
     }
   }
 }
 
 
-export default connect(null, mapDispatchToProps)(NewPost);
+export default connect(mapStateToProps, mapDispatchToProps)(EditPost);

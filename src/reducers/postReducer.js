@@ -11,6 +11,7 @@ import {
     FETCH_POST_BEGIN,
     FETCH_POST_SUCCESS,
     FETCH_POST_FAILURE,
+    RESET_POST,
     // update
     UPDATE_POST_BEGIN,
     UPDATE_POST_SUCCESS,
@@ -95,6 +96,11 @@ export default function postReducer(state = initialState, action) {
                 loading: false,
                 error: null,
                 activePost: getPost(state.items, action.payload)
+            };
+        case RESET_POST:
+            return {
+                ...state,
+                activePost: null
             };
 
         default:

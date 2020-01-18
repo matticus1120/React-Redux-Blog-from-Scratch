@@ -1,6 +1,6 @@
 import SinglePost from '../components/SinglePost.js';
 
-import { fetchPost } from '../actions/postActions';
+import { fetchPost, resetPost } from '../actions/postActions';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state, ownProps) {
@@ -14,6 +14,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchPost: (postId) => {
     	dispatch(fetchPost(postId));
+    },
+    resetPost: () => {
+    	dispatch(resetPost());
     }
   }
 }

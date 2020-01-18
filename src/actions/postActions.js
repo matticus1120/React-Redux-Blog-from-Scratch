@@ -12,6 +12,7 @@ export const INSERT_POST_FAILURE = 'INSERT_POST_FAILURE';
 export const FETCH_POST_BEGIN = 'FETCH_POST_BEGIN';
 export const FETCH_POST_SUCCESS = 'FETCH_POST_SUCCESS';
 export const FETCH_POST_FAILURE = 'FETCH_POST_FAILURE';
+export const RESET_POST = 'RESET_POST';
 /* update */
 export const UPDATE_POST_BEGIN = 'UPDATE_POST_BEGIN';
 export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
@@ -62,16 +63,13 @@ export const fetchPostFailure = error => ({
 
 export function fetchPost(payload) {
 
-    console.log('payload', payload);
-
     return dispatch => {
         
         dispatch(fetchPostBegin());
-        console.log('fetchPostBegin');
 
         setTimeout(function(){
             dispatch( fetchPostSuccess( payload ) );
-        }, 100);
+        }, 0);
 
     };
 
@@ -94,6 +92,10 @@ export const updatePostBegin = () => ({
 export const updatePostSuccess = postName => ({
     type: UPDATE_POST_SUCCESS,
     payload: postName
+});
+
+export const resetPost = () => ({
+    type: RESET_POST
 });
 
 export function updatePost(payload) {

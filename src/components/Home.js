@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from "react-redux";
-
 import { Link } from 'react-router-dom';
 
 import { Table } from 'reactstrap';
@@ -11,9 +9,9 @@ class Home extends React.Component{
 		return this.props.posts.map((item, index )=> {
 			return (
 				<tr key={index}>
-					<td><Link to={`/posts/${index}`}>{item.postTitle}</Link></td>
+					<td><Link to={`/posts/${item.id}`}>{item.postTitle}</Link></td>
 					<td>{item.postCategory}</td>
-					<td><Link to={`/edit-post/${index}`}>Edit</Link></td>
+					<td><Link to={`/edit-post/${item.id}`}>Edit</Link></td>
 				</tr>
 			)
 		});
@@ -68,11 +66,4 @@ class Home extends React.Component{
 }
 
 
-
-const mapStateToProps = state => ({
-	posts: state.posts.items,
-	loading: state.posts.loading,
-	error: state.posts.error
-});
-
-export default connect(mapStateToProps)(Home);
+export default Home;

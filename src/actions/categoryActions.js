@@ -1,3 +1,9 @@
+/**
+ * Category Actions
+ */
+
+
+import { formatCategory } from '../utils/storeHelpers.js';
 
 /* insert */
 export const INSERT_CATEGORY_BEGIN = 'INSERT_CATEGORY_BEGIN';
@@ -23,7 +29,7 @@ export function insertCategory(payload) {
         dispatch(insertCategoryBegin());
 
         setTimeout(function(){
-			dispatch(insertCategorySuccess(payload));
+			dispatch( insertCategorySuccess( formatCategory(payload) ) );
         }, 100);
 
     };

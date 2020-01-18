@@ -12,6 +12,10 @@ class SinglePost extends React.Component{
 	}
 	
 	render() {
+		
+		if( this.props.loading ) {
+			return <div className="loading"><h1><em>Loading...</em></h1></div>
+		}
 
 		if( !this.props.activePost ) {
 			return <div className="not-found">

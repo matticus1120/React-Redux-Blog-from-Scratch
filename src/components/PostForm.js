@@ -41,6 +41,7 @@ class PostForm extends React.Component{
 		return (
 			<Form
 				onSubmit={this.onSubmit}
+				initialValues={this.props.activePost}
 				render={({ handleSubmit }) => (
 
 				<form onSubmit={handleSubmit}>
@@ -57,7 +58,6 @@ class PostForm extends React.Component{
 									component="input" 
 									placeholder="Post Title" 
 									className="form-control"
-									initialValue={ !this.props.activePost ? '' : this.props.activePost.postTitle }
 								/>
 							</div>
 						</div>
@@ -85,7 +85,6 @@ class PostForm extends React.Component{
 									component="textarea"
 									placeholder="content"
 									className="form-control"
-									initialValue={ !this.props.activePost ? '' : this.props.activePost.postContent }
 								/>
 							</div>
 						</div>

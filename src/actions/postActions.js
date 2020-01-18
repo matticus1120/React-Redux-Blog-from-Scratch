@@ -69,7 +69,7 @@ export function fetchPost(payload) {
 
         setTimeout(function(){
             dispatch( fetchPostSuccess( payload ) );
-        }, 0);
+        }, 1000);
 
     };
 

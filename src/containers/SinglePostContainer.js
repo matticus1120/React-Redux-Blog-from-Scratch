@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 function mapStateToProps(state, ownProps) {
   return { 
     activePost: state.posts.activePost,
-    activePostId: ownProps.match.params.id
+    activePostId: ownProps.match.params.id,
+    loading: state.posts.loading
   };
 }
 

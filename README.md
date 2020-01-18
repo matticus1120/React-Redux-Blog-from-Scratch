@@ -17,11 +17,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 **Redux Tutorial**
 https://daveceddia.com/redux-tutorial/
 
-**Structure your React-Redux project for scalability and maintainability**
+**Structure your React-Redux project for scalability and maintainability**  
 https://levelup.gitconnected.com/structure-your-react-redux-project-for-scalability-and-maintainability-618ad82e32b7
 
-**Setting Up Redux DevTools — A Simple Guide**
+**Setting Up Redux DevTools — A Simple Guide**  
 https://medium.com/@samueldinesh/setting-up-redux-devtools-a-simple-guide-3b386a6254fa
 
-**React Redux CRUD App**
+**React Redux CRUD App**  
 https://github.com/rajaraodv/react-redux-blog

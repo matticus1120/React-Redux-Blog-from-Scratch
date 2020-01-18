@@ -1,11 +1,23 @@
-import EditPost from '../components/NewPost.js';
+import NewPost from '../components/NewPost.js';
+
+import { fetchPost } from '../actions/postActions';
 import { connect } from 'react-redux';
 
 function mapStateToProps(state, ownProps) {
   return { 
-    post: state.posts.items[ownProps.match.params.id],
+    activePost: state.posts.activePost,
+    activePostId: ownProps.match.params.id,
     categories: state.categories.items
   };
 }
 
-export default connect(mapStateToProps)(EditPost);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchPost: (postId) => {
+    	dispatch(fetchPost(postId));
+    }
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewPost);

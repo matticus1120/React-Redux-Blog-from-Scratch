@@ -1,11 +1,20 @@
 import NewPost from '../components/NewPost.js';
 import { connect } from 'react-redux';
 
+import { insertPost } from "../actions/postActions";
+
 
 function mapStateToProps(state, ownProps) {
   return { 
     categories: state.categories.items
   };
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    insertPost: (values) => {
+    	dispatch(insertPost(values));
+    }
+  }
+}
 
-export default connect(mapStateToProps, null)(NewPost);
+export default connect(mapStateToProps, mapDispatchToProps)(NewPost);

@@ -19,7 +19,7 @@ class Home extends React.Component{
 	
 	renderPostsTable() {
 		
-		if( !this.props.posts.length ) {
+		if( !this.props.posts || !this.props.posts.length ) {
 			return <div><p>No posts yet. <Link to="/new-post">Add one now</Link>.</p></div>
 		}
 

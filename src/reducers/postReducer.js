@@ -26,6 +26,7 @@ const initialState = {
 
 const getPost = (posts, postId) => {
     let thePost = posts.find((elem) => elem.id === postId );
+    // console.log('thePost', thePost);
     return thePost;
 }
 
@@ -55,18 +56,21 @@ export default function postReducer(state = initialState, action) {
 
         // update
         case FETCH_POST_BEGIN:
+            console.log('FETCH_POST_BEGIN');
             return {
                 ...state,
                 loading: true,
                 error: false
             };
         case FETCH_POST_FAILURE:
+            console.log('FETCH_POST_FAILURE');
             return {
                 ...state,
                 loading: false,
                 error: true
             };
         case FETCH_POST_SUCCESS:
+            // console.log('FETCH_POST_SUCCESS');
             return {
                 ...state,
                 loading: false,
@@ -87,6 +91,7 @@ export default function postReducer(state = initialState, action) {
                 error: true
             };
         case UPDATE_POST_SUCCESS:
+
             return {
                 ...state,
                 loading: false,

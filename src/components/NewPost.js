@@ -1,12 +1,15 @@
 import React from 'react';
-import { connect } from "react-redux";
 import { Form, Field } from 'react-final-form'
 import { Link } from 'react-router-dom';
 
-import { insertPost } from "../actions/postActions";
-
 class NewPost extends React.Component{
 	
+	componentWillMount() {
+		console.log('this.props.match.params.id', this.props.match.params.id);
+		if( this.props.fetchPost )
+			this.props.fetchPost(this.props.match.params.id);
+	}
+
 	onSubmit = (values) => {
 		this.props.insertPost( values );
 		this.props.history.push('/');
@@ -46,7 +49,7 @@ class NewPost extends React.Component{
 									component="input" 
 									placeholder="Post Title" 
 									className="form-control"
-									initialValue={ this.props.post ? this.props.post.postTitle : '' }
+									initialValue={ this.props.activePost ? this.props.activePost.postTitle : '' }
 								/>
 							</div>
 						</div>
@@ -74,7 +77,7 @@ class NewPost extends React.Component{
 									component="textarea"
 									placeholder="content"
 									className="form-control"
-									initialValue={ this.props.post ? this.props.post.postContent : '' }
+									initialValue={ this.props.activePost ? this.props.activePost.postContent : '' }
 								/>
 							</div>
 						</div>
@@ -82,7 +85,7 @@ class NewPost extends React.Component{
 						</div>
 					</div>
 
-					<button className="btn btn-success">{ this.props.post ? 'Update' : 'Publish' }</button>
+					<button className="btn btn-success">{ this.props.activePost ? 'Update' : 'Publish' }</button>
 				</form>
 
 				)}
@@ -95,7 +98,7 @@ class NewPost extends React.Component{
 
 		return (
 			<div>
-				<h1>{ this.props.post ? 'Edit Post' : 'New Post' }</h1>
+				<h1>{ this.props.activePost ? 'Edit Post' : 'New Post' }</h1>
 				{this.renderNewPost()}
 			</div>
 		)
@@ -103,11 +106,4 @@ class NewPost extends React.Component{
 	}
 }
 
-
-const mapDispatchToProps = {
-	insertPost
-}
-
-export default connect(null, mapDispatchToProps)(NewPost);
-
-
+export default NewPost;

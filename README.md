@@ -14,7 +14,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## References:
 
-**Redux Tutorial**
+**Redux Tutorial**  
 https://daveceddia.com/redux-tutorial/
 
 **Structure your React-Redux project for scalability and maintainability**  
@@ -25,3 +25,9 @@ https://medium.com/@samueldinesh/setting-up-redux-devtools-a-simple-guide-3b386a
 
 **React Redux CRUD App**  
 https://github.com/rajaraodv/react-redux-blog
+
+## To Do:
+* Add a timestamp to post and category objects, display in views
+* Show category post count
+* Form Validation
+* Integrate an API

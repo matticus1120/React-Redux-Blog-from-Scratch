@@ -55,8 +55,6 @@ class PostForm extends React.Component{
 
 				<form onSubmit={handleSubmit}>
 
-					<h3>{ !this.props.activePost ? 'New' : this.props.activePost.postTitle }</h3>
-					
 					<div className="row">
 						
 						<div className="col-6">

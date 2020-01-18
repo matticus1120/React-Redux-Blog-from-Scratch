@@ -33,7 +33,11 @@ class PostForm extends React.Component{
 	}
 
 	renderNewPost() {
-	
+
+		if( this.props.activePostId && this.props.loading ) {
+			return <div className="loading"><h1><em>Loading...</em></h1></div>
+		}
+
 		if( !this.props.categories || !this.props.categories.length ) {
 			return <div><p>No categories yet. <Link to="/new-category">Add one now</Link>.</p></div>
 		}

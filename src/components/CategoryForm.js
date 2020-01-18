@@ -1,10 +1,7 @@
 import React from 'react';
-import { connect } from "react-redux";
 import { Form, Field } from 'react-final-form'
 
-import { insertCategory } from "../actions/categoryActions";
-
-class NewCategory extends React.Component{
+class CategoryForm extends React.Component{
 	
 	onSubmit = (values) => {
 		this.props.insertCategory( values );
@@ -51,10 +48,4 @@ class NewCategory extends React.Component{
 }
 
 
-const mapDispatchToProps = {
-	insertCategory
-}
-
-export default connect(null, mapDispatchToProps)(NewCategory);
-
-
+export default CategoryForm;

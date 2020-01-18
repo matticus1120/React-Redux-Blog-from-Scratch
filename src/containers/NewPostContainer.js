@@ -5,11 +5,11 @@ import { insertPost } from "../actions/postActions";
 
 
 function mapStateToProps(state, ownProps) {
-	console.log('state', state);
   return { 
     categories: state.categories.items
   };
 }
+
 const mapDispatchToProps = (dispatch) => {
   return {
     insertPost: (values) => {

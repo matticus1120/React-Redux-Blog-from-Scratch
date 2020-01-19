@@ -3,7 +3,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # React Redux Blog from "Scratch"
 
-This is a work-in-progress project that exists just so that I can teach myself (and hopefully others!) Redux. Along the way I'm leaving notes, comments, and links, so that I can remind myself where I learned certain things along the way.
+This is a work-in-progress project that exists just so that I can teach myself Redux. I'm leaving notes, comments, and links, so that I can remind myself where I learned certain things along the way.
+
+The app allows you to create and edit blog posts and categories.
 
 ## To get started:
 

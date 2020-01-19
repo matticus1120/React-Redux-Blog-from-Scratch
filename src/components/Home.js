@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import moment from 'moment';
+
 import { Table } from 'reactstrap';
 
 class Home extends React.Component{
@@ -11,6 +13,8 @@ class Home extends React.Component{
 				<tr key={index}>
 					<td><Link to={`/posts/${item.id}`}>{item.postTitle}</Link></td>
 					<td>{item.categoryObject.categoryTitle}</td>
+					<td>{moment(item.created).format('LL h:ma')}</td>
+					<td>{moment(item.edited).format('LL h:ma')}</td>
 					<td><Link to={`/edit-post/${item.id}`}>Edit</Link></td>
 				</tr>
 			)
@@ -31,6 +35,8 @@ class Home extends React.Component{
 					<tr>
 						<th>Post</th>
 						<th>Category</th>
+						<th>Created</th>
+						<th>Edited</th>
 						<th>Actions</th>
 					</tr>
 				</thead>

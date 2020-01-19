@@ -40,7 +40,7 @@ export function insertCategory(payload) {
         dispatch(insertCategoryBegin());
 
         setTimeout(function(){
-			dispatch( insertCategorySuccess( formatCategory(payload) ) );
+			dispatch( insertCategorySuccess( formatCategory({ ...payload, created: Date.now(), edited: Date.now() }) ) );
         }, 100);
 
     };
@@ -98,7 +98,7 @@ export function updateCategory(payload) {
         dispatch(updateCategoryBegin());
 
         setTimeout(function(){
-            dispatch( updateCategorySuccess( payload ) );
+            dispatch( updateCategorySuccess( { ...payload, created: Date.now() } ) );
         }, 100);
 
     };

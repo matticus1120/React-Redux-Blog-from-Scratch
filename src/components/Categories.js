@@ -3,6 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Table } from 'reactstrap';
 
+import moment from 'moment';
+
 class Categories extends React.Component{
 	
 	renderCategories() {
@@ -10,6 +12,8 @@ class Categories extends React.Component{
 			return (
 				<tr key={index}>
 					<td>{item.categoryTitle}</td>
+					<td>{moment(item.created).format('LL h:ma')}</td>
+					<td>{moment(item.edited).format('LL h:ma')}</td>
 					<td><Link to={`/edit-category/${item.id}`}>Edit</Link></td>
 				</tr>
 			)
@@ -29,6 +33,8 @@ class Categories extends React.Component{
 				<thead>
 					<tr>
 						<th>Category</th>
+						<th>Created</th>
+						<th>Edited</th>
 						<th>Actions</th>
 					</tr>
 				</thead>

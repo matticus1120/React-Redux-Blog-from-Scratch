@@ -6,7 +6,6 @@
 
 // https://www.npmjs.com/package/slugify
 import slugify from 'slugify';
-import moment from 'moment';
 
 // components
 import { getRandomId } from './helpers.js';

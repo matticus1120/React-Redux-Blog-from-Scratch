@@ -37,7 +37,7 @@ export function insertPost(payload) {
         dispatch(insertPostBegin());
 
         setTimeout(function(){
-			dispatch( insertPostSuccess( formatPost(payload) ) );
+			dispatch( insertPostSuccess( formatPost( { ...payload, created: Date.now(), edited: Date.now() } ) ) );
         }, 100);
 
     };
@@ -105,7 +105,7 @@ export function updatePost(payload) {
         dispatch(updatePostBegin());
 
         setTimeout(function(){
-			dispatch(updatePostSuccess(payload));
+			dispatch(updatePostSuccess({ ...payload, edited: Date.now() }));
         }, 100);
 
     };

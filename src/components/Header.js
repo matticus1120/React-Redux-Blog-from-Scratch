@@ -1,8 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
 
-import { connect } from 'react-redux';
-
 import {
 	Collapse,
 	Navbar,
@@ -10,7 +8,7 @@ import {
 	NavItem,
 } from 'reactstrap';
 
-class Header extends React.Component{
+class Header extends React.Component {
 
 	render(){
 
@@ -20,6 +18,7 @@ class Header extends React.Component{
 					<NavLink exact className="navbar-brand" to="/">Redux Blog</NavLink>
 
 					<Collapse isOpen={true} navbar> 
+						
 						<Nav className="ml-auto" navbar>
 							
 							<NavItem>
@@ -45,8 +44,12 @@ class Header extends React.Component{
 	}
 }
 
-const mapStateToProps = state => ({
-	posts: state.posts.items,
-});
+export default Header;
 
-export default connect(mapStateToProps)(Header);
+
+
+
+
+
+
+

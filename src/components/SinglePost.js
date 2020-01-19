@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import moment from 'moment';
+
 class SinglePost extends React.Component{
 
 	componentWillMount() {
@@ -24,14 +26,12 @@ class SinglePost extends React.Component{
 			</div>
 		}
 
-		console.log('this.props.activePost', this.props.activePost);
-
 		var categoryTitle = this.props.activePost.categoryObject ? this.props.activePost.categoryObject.categoryTitle : '';
 
 		return(
 			<div>
 				<h1>{this.props.activePost.postTitle}</h1>
-				<h4>{categoryTitle}</h4>
+				<h5>{categoryTitle} | Published <em>{moment(this.props.activePost.created).format('LL h:ma')}</em></h5>
 				<p>{this.props.activePost.postContent}</p>
 			</div>
 		);

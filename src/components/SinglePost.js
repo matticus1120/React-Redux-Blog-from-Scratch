@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class SinglePost extends React.Component{
 
 	componentWillMount() {
-		this.props.fetchPost(this.props.match.params.id);
+		this.props.fetchPost(this.props.activePostId);
 	}
 
 	componentWillUnmount() {
@@ -24,10 +24,14 @@ class SinglePost extends React.Component{
 			</div>
 		}
 
+		console.log('this.props.activePost', this.props.activePost);
+
+		var categoryTitle = this.props.activePost.categoryObject ? this.props.activePost.categoryObject.categoryTitle : '';
+
 		return(
 			<div>
 				<h1>{this.props.activePost.postTitle}</h1>
-				<h4>{this.props.activePost.postCategory}</h4>
+				<h4>{categoryTitle}</h4>
 				<p>{this.props.activePost.postContent}</p>
 			</div>
 		);

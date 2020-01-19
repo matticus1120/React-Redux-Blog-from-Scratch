@@ -9,7 +9,7 @@ class Categories extends React.Component{
 		return this.props.categories.map((item, index )=> {
 			return (
 				<tr key={index}>
-					<td><Link to={`/categories/${index}`}>{item.categoryTitle}</Link></td>
+					<td>{item.categoryTitle}</td>
 					<td><Link to={`/edit-category/${item.id}`}>Edit</Link></td>
 				</tr>
 			)

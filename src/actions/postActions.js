@@ -86,16 +86,16 @@ export function fetchPost(payload) {
  * Fetch All Posts Post
  */
 export const fetchPostsBegin = () => ({
-    type: FETCH_POST_BEGIN
+    type: FETCH_POSTS_BEGIN
 });
 
 export const fetchPostsSuccess = post => ({
-    type: FETCH_POST_SUCCESS,
+    type: FETCH_POSTS_SUCCESS,
     payload: post
 });
 
 export const fetchPostsFailure = error => ({
-    type: FETCH_POST_FAILURE,
+    type: FETCH_POSTS_FAILURE,
     payload: error
 });
 

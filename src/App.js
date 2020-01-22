@@ -64,6 +64,9 @@ class App extends React.Component{
 
 }
 
+/**
+ * Connent App to the redux store so that you can fetchposts right away
+ */
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchPosts: () => {

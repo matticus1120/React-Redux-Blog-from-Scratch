@@ -12,6 +12,10 @@ import {
     FETCH_POST_SUCCESS,
     FETCH_POST_FAILURE,
     RESET_POST,
+    // fetch
+    FETCH_POSTS_BEGIN,
+    FETCH_POSTS_SUCCESS,
+    FETCH_POSTS_FAILURE,
     // update
     UPDATE_POST_BEGIN,
     UPDATE_POST_SUCCESS,
@@ -102,6 +106,27 @@ export default function postReducer(state = initialState, action) {
             return {
                 ...state,
                 activePost: null
+            };
+        // fetch all posts
+        case FETCH_POSTS_BEGIN:
+            return {
+                ...state,
+                loading: true,
+                error: false
+            };
+        case FETCH_POSTS_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: true
+            };
+        case FETCH_POSTS_SUCCESS:
+            console.log('action.payload', action.payload);
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                items: [ ...state.items, action.payload ]
             };
 
         default:

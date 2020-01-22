@@ -1,0 +1,18 @@
+[
+	{
+		"postTitle": "Blog Post Number One",
+		"postCategory": "8gr9zohslyxx4lwstomycp",
+		"postContent": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+		"id": "mggncme95sawm7e5195k6",
+		"slug": "blog-post-number-one",
+		"edited": "1579458298607"
+	},
+	{
+		"postTitle": "The Second Blog Post",
+		"postCategory": "xfvw82ukqqm5ci9tllv68",
+		"postContent": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+		"id": "7keel41fdwggfyg4pbn4q",
+		"slug": "the-second-blog-post",
+		"edited": "1579458318794"
+	}
+]

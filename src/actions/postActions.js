@@ -8,11 +8,15 @@ import { formatPost } from '../utils/storeHelpers.js';
 export const INSERT_POST_BEGIN = 'INSERT_POST_BEGIN';
 export const INSERT_POST_SUCCESS = 'INSERT_POST_SUCCESS';
 export const INSERT_POST_FAILURE = 'INSERT_POST_FAILURE';
-/* fetch */
+/* fetch single post */
 export const FETCH_POST_BEGIN = 'FETCH_POST_BEGIN';
 export const FETCH_POST_SUCCESS = 'FETCH_POST_SUCCESS';
 export const FETCH_POST_FAILURE = 'FETCH_POST_FAILURE';
 export const RESET_POST = 'RESET_POST';
+/* fetch all posts post */
+export const FETCH_POSTS_BEGIN = 'FETCH_POSTS_BEGIN';
+export const FETCH_POSTS_SUCCESS = 'FETCH_POSTS_SUCCESS';
+export const FETCH_POSTS_FAILURE = 'FETCH_POSTS_FAILURE';
 /* update */
 export const UPDATE_POST_BEGIN = 'UPDATE_POST_BEGIN';
 export const UPDATE_POST_SUCCESS = 'UPDATE_POST_SUCCESS';
@@ -45,7 +49,7 @@ export function insertPost(payload) {
 }
 
 /**
- * Fetch
+ * Fetch Single Post
  */
 export const fetchPostBegin = () => ({
     type: FETCH_POST_BEGIN
@@ -71,6 +75,49 @@ export function fetchPost(payload) {
             dispatch( fetchPostSuccess( payload ) );
         }, 1000);
 
+    };
+
+}
+
+
+
+
+/**
+ * Fetch All Posts Post
+ */
+export const fetchPostsBegin = () => ({
+    type: FETCH_POST_BEGIN
+});
+
+export const fetchPostsSuccess = post => ({
+    type: FETCH_POST_SUCCESS,
+    payload: post
+});
+
+export const fetchPostsFailure = error => ({
+    type: FETCH_POST_FAILURE,
+    payload: error
+});
+
+
+export function fetchPosts(payload) {
+
+
+    return dispatch => {
+        
+        dispatch(fetchPostsBegin());
+
+        return fetch("/backend/posts.json")
+            .then(res => {
+                return res.json();
+            })
+            .then((json) => {
+                dispatch(fetchPostsSuccess(json));
+                return json;
+            })
+            .catch(error => {
+                dispatch(fetchPostsFailure(error));
+            });
     };
 
 }

@@ -19,8 +19,18 @@ import Categories from './containers/CategoryContainer';
 import NewCategory from './containers/NewCategoryContainer';
 import EditCategory from './containers/EditCategoryContainer';
 
+import { connect } from 'react-redux';
 
-export default class App extends React.Component{
+import { fetchPosts } from "./actions/postActions";
+
+
+
+
+class App extends React.Component{
+
+	componentDidMount() {
+		this.props.fetchPosts();
+	}
 
 	render() {
 		
@@ -53,3 +63,15 @@ export default class App extends React.Component{
 	} 
 
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchPosts: () => {
+    	dispatch(fetchPosts());
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);
+
+

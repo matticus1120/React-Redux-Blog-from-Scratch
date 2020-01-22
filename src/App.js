@@ -22,6 +22,7 @@ import EditCategory from './containers/EditCategoryContainer';
 import { connect } from 'react-redux';
 
 import { fetchPosts } from "./actions/postActions";
+import { fetchCategories } from "./actions/categoryActions";
 
 
 
@@ -29,7 +30,9 @@ import { fetchPosts } from "./actions/postActions";
 class App extends React.Component{
 
 	componentDidMount() {
+		this.props.fetchCategories();
 		this.props.fetchPosts();
+		
 	}
 
 	render() {
@@ -71,6 +74,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchPosts: () => {
     	dispatch(fetchPosts());
+    },
+    fetchCategories: () => {
+    	dispatch(fetchCategories());
     }
   }
 }

@@ -3,10 +3,17 @@ import {
     INSERT_CATEGORY_BEGIN,
     INSERT_CATEGORY_FAILURE,
     INSERT_CATEGORY_SUCCESS,
-    // FETCH
+    
+    // FETCH sing
     FETCH_CATEGORY_BEGIN,
     FETCH_CATEGORY_FAILURE,
     FETCH_CATEGORY_SUCCESS,
+
+    // fetch
+    FETCH_CATEGORIES_BEGIN,
+    FETCH_CATEGORIES_SUCCESS,
+    FETCH_CATEGORIES_FAILURE,
+
     // UPDATE
     UPDATE_CATEGORY_BEGIN,
     UPDATE_CATEGORY_FAILURE,
@@ -50,7 +57,7 @@ export default function categoryReducer(state = initialState, action) {
                 items: [...state.items,  action.payload]
             };
       
-        // fetch
+        // fetch single category
         case FETCH_CATEGORY_BEGIN:
             return {
                 ...state,
@@ -69,6 +76,28 @@ export default function categoryReducer(state = initialState, action) {
                 loading: false,
                 error: null,
                 activeCategory: state.items.find((item) => item.id === action.payload )
+            };
+
+
+        // fetch all categories
+        case FETCH_CATEGORIES_BEGIN:
+            return {
+                ...state,
+                loading: true,
+                error: false
+            };
+        case FETCH_CATEGORIES_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: true
+            };
+        case FETCH_CATEGORIES_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                items: action.payload
             };
 
         // update

@@ -7,12 +7,12 @@ import {
     INSERT_POST_BEGIN,
     INSERT_POST_FAILURE,
     INSERT_POST_SUCCESS,
-    // fetch
+    // fetch single
     FETCH_POST_BEGIN,
     FETCH_POST_SUCCESS,
     FETCH_POST_FAILURE,
     RESET_POST,
-    // fetch
+    // fetch all
     FETCH_POSTS_BEGIN,
     FETCH_POSTS_SUCCESS,
     FETCH_POSTS_FAILURE,
@@ -121,12 +121,12 @@ export default function postReducer(state = initialState, action) {
                 error: true
             };
         case FETCH_POSTS_SUCCESS:
-            console.log('action.payload', action.payload);
+
             return {
                 ...state,
                 loading: false,
                 error: null,
-                items: [ ...state.items, action.payload ]
+                items: action.payload
             };
 
         default:

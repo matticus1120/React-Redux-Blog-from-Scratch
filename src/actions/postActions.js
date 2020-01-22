@@ -112,7 +112,9 @@ export function fetchPosts(payload) {
                 return res.json();
             })
             .then((json) => {
-                dispatch(fetchPostsSuccess(json));
+
+                dispatch(fetchPostsSuccess(json ));
+
                 return json;
             })
             .catch(error => {

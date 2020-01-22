@@ -54,6 +54,8 @@ class Home extends React.Component{
 			return <div><em>Loading...</em></div>
 		}
 
+		console.log('this.props.posts', this.props.posts);
+
 		return(
 			<div>
 				<header>

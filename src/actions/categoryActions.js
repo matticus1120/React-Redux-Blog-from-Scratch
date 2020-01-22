@@ -10,11 +10,16 @@ export const INSERT_CATEGORY_BEGIN = 'INSERT_CATEGORY_BEGIN';
 export const INSERT_CATEGORY_SUCCESS = 'INSERT_CATEGORY_SUCCESS';
 export const INSERT_CATEGORY_FAILURE = 'INSERT_CATEGORY_FAILURE';
 
-/* insert */
+/* fetch single */
 export const FETCH_CATEGORY_BEGIN = 'FETCH_CATEGORY_BEGIN';
 export const FETCH_CATEGORY_SUCCESS = 'FETCH_CATEGORY_SUCCESS';
 export const FETCH_CATEGORY_FAILURE = 'FETCH_CATEGORY_FAILURE';
 export const RESET_CATEGORY = 'RESET_CATEGORY';
+
+/* fetch all */
+export const FETCH_CATEGORIES_BEGIN = 'FETCH_CATEGORIES_BEGIN';
+export const FETCH_CATEGORIES_SUCCESS = 'FETCH_CATEGORIES_SUCCESS';
+export const FETCH_CATEGORIES_FAILURE = 'FETCH_CATEGORIES_FAILURE';
 
 /* update */
 export const UPDATE_CATEGORY_BEGIN = 'UPDATE_CATEGORY_BEGIN';
@@ -49,7 +54,7 @@ export function insertCategory(payload) {
 
 
 /**
- * Fetch
+ * Fetch Single
  */
 export const fetchCategoryBegin = () => ({
     type: FETCH_CATEGORY_BEGIN
@@ -77,6 +82,47 @@ export function fetchCategory(payload) {
     };
 
 }
+
+/**
+ * Fetch All Categories
+ */
+export const fetchCategoriesBegin = () => ({
+    type: FETCH_CATEGORIES_BEGIN
+});
+
+export const fetchCategoriesSuccess = category => ({
+    type: FETCH_CATEGORIES_SUCCESS,
+    payload: category
+});
+
+export const fetchCategoriesFailure = error => ({
+    type: FETCH_CATEGORIES_FAILURE,
+    payload: error
+});
+
+
+export function fetchCategories(payload) {
+
+    return dispatch => {
+        
+        dispatch(fetchCategoriesBegin());
+
+        return fetch("/backend/categories.json")
+            .then(res => {
+                return res.json();
+            })
+            .then((json) => {
+                console.log('json', json);
+                dispatch(fetchCategoriesSuccess(json));
+                return json;
+            })
+            .catch(error => {
+                dispatch(fetchCategoriesFailure(error));
+            });
+    };
+
+}
+
 
 
 /**

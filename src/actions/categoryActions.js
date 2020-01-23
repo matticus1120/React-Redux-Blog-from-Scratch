@@ -112,8 +112,9 @@ export function fetchCategories(payload) {
                 return res.json();
             })
             .then((json) => {
-                console.log('json', json);
-                dispatch(fetchCategoriesSuccess(json));
+                setTimeout(()=>{
+                    dispatch(fetchCategoriesSuccess(json));
+                }, 0); // set this to 300 to mimic a slow server response
                 return json;
             })
             .catch(error => {

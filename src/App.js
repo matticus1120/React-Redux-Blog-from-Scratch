@@ -29,10 +29,9 @@ import { fetchCategories } from "./actions/categoryActions";
 
 class App extends React.Component{
 
-	componentDidMount() {
+	componentWillMount() {
 		this.props.fetchCategories();
 		this.props.fetchPosts();
-		
 	}
 
 	render() {
@@ -81,6 +80,12 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+function mapStateToProps(state, ownProps) {
+  return { 
+    categories: state.categories.items
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
